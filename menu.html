@@ -13,7 +13,7 @@
 </head>
 <body >
     
-    <div >
+    <div id="app">
 
         <div class="video-container">
             <video autoplay loop muted="muted">
@@ -26,75 +26,29 @@
             <div class="logopbg"></div>
 
             <div class="menubox overflowA">
-                <p class="Menutitle">Menú</p>
+                <p class="Menutitle">{{menuTitle}}</p>
 
                 <div class="menu1">
-                    <div class="w45 h95 glass flexCenter btn1 1a">
+                    <div class="w45 h95 glass flexCenter btn1 1a" @click ="choosedType(1)">
                         <i class="fas fa-cocktail"></i>
                         <p>Bebidas</p>
                     </div>
-                    <div class="w45 h95 glass flexCenter btn1 1b">
+                    <div class="w45 h95 glass flexCenter btn1 1b" @click ="choosedType(2)">
                         <i class="fas fa-utensils"></i>
                         <p>Platillos</p>
                     </div>
                 </div>
 
-                <div class="menu2 2a  ocultar">
-
-                    <div class="2a ocultar">
-                        <div class="content glass2 btn2">
-                            <p>Cervezas</p>
-                        </div>
-                        <div class="content glass2 btn2">
-                            <p>Micheladas</p>
-                        </div><div class="content glass2 btn2">
-                            <p>Clamatos</p>
-                        </div><div class="content glass2 btn2">
-                            <p>Mojitos</p>
-                        </div>
-                        <div class="content glass2 btn2">
-                            <p>Sin Alcohol</p>
-                        </div>
+                <div class="menu2 ocultar">
+                    <div style="z-index: 500;" class="content glass2 pointer btn2" v-for="(type, index) in types" v-if="type.tipo == typeSelected">
+                        <p>{{type.nombreTipo}}</p>
                     </div>
-                    <div class="2b ocultar">
-                        <div class="content glass2 btn2">
-                            <p>Tacos</p>
-                        </div>
-                        <div class="content glass2 btn2">
-                            <p>Tacos Dorados</p>
-                        </div>
-                        <div class="content glass2 btn2">
-                            <p>Tacos De Jicama</p>
-                        </div>
-                        <div class="content glass2 btn2">
-                            <p>Tostadas</p>
-                        </div>
-                        <div class="content glass2 btn2">
-                            <p>Lonchecitos</p>
-                        </div>
-                        <div class="content glass2 btn2">
-                            <p>Burritos</p>
-                        </div>
-                        <div class="content glass2 btn2">
-                            <p>Postres</p>
-                        </div>
-                        <div class="content glass2 btn2">
-                            <p>Caldo De Camarón</p>
-                        </div>
-                        <div class="content glass2 btn2">
-                            <p>Hamburguesas</p>
-                        </div>
-                        <div class="content glass2 btn2">
-                            <p>PO´Boys</p>
-                        </div>
-                        <div class="content glass2 btn2">
-                            <p>Toritos</p>
-                        </div>
-                    </div>
-
                 </div>
-                <div class="menu3">
 
+                <div class="menu3 glass ocultar">
+                    <div v-for ="(producto, index) in productos">
+                        <p>{{producto.nombre}}</p>
+                    </div>
                 </div>
 
             </div>
@@ -107,7 +61,12 @@
 
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
     <script src="/js/jQuery.js"></script>
+
     <script src="/js/system.js"></script>
+    <script src="/js/app.js"></script>
+    
 </body>
 </html>

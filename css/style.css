@@ -11,12 +11,17 @@ body {
     color: white;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .glass {
     background-color: rgba(255, 255, 255, 0.315);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(60px);
     border: 1px solid #f0592a;
     border-radius: 1rem;
+    transition: .5s;
 }
 
 .glass2 {
@@ -24,6 +29,7 @@ body {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(60px);
     border-radius: 1rem;
+    transition: .5s;
 }
 
 .video-container {
@@ -133,4 +139,9 @@ body {
     margin: 2rem auto;
     text-shadow: 0px 0px 12px #000000,
     0px 0px 10px #000000;
+}
+
+.menu3 {
+    height: 85%;
+    width: 70%;
 }
