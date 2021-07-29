@@ -39,8 +39,8 @@
                     </div>
                 </div>
 
-                <div class="menu2 ocultar">
-                    <div style="z-index: 500;" class="content glass2 pointer btn2" v-for="(type, index) in types" v-if="type.tipo == typeSelected">
+                <div class="menu2">
+                    <div class="btn2 conten glass2 pointer " v-for="(type, index) in types" v-if="type.tipo == typeSelected">
                         <p>{{type.nombreTipo}}</p>
                     </div>
                 </div>
@@ -64,7 +64,6 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
     <script src="/js/jQuery.js"></script>
-
     <script src="/js/system.js"></script>
     <script src="/js/app.js"></script>
     

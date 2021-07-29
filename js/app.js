@@ -49,7 +49,14 @@ const app = new Vue({
     },
     updated(){
 
-        
+        $(".btn2").on("click", function(){
+            console.log("CLICK");
+            $(".menu2").hide();
+            $(".menu3").fadeIn(500);
+            $(".backbtn").addClass("back2");
+            
+            return false;
+        });
 
     }
 

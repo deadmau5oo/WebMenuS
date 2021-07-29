@@ -25,13 +25,7 @@ $(function(){
         return false;     
     });
 
-    $(".btn2").on("click", function(){
-        $(".menu2").hide();
-        $(".menu3").fadeIn(500);
-        $(".backbtn").addClass("back2");
-        
-        return false;
-    });
+    
 
     $(".backbtn").on("click", function(){
 
@@ -40,18 +34,17 @@ $(function(){
             $(".menu3").hide();
             $(".menu2").fadeIn(500);
             $(this).removeClass("back2");
-            return 0;
+            return false;
             
         }
         if($(this).hasClass("back1")){
             app.menuTitle="Menú";
 
-            $(".ocultar").hide();
+            $(".menu2").hide();
             $(".menu1").fadeIn(500);
             $(this).removeClass("back1");
-            return 0;
+            return false;
         }
-        
 
         return false;     
     });
