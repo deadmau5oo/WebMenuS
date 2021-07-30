@@ -2,9 +2,16 @@ const app = new Vue({
     el:"#app",
     data:{
         menuTitle:"Menú",
+        menuTitle2:"Menú",
         types:[],
         typeSelected:"",
-        productos:[]
+        productos:[],
+        productSelected:"",
+        orderNums:[],
+        order: {
+            products:[],
+            active:true,
+        }
     },
     methods:{
 
@@ -42,22 +49,40 @@ const app = new Vue({
             }
         },
 
+        typePCard: function(ProductName) {
+            app.productSelected = ProductName;
+            app.menuTitle = ProductName;
+            $(".menu2").hide();
+            $(".menu3").fadeIn(500);
+            $(".backbtn").addClass("back2");
+        },
+
+        addProduct: function(product) {
+            app.order.push(product);
+        }
+
     },
     created: function() {
         this.showtype();
         this.showProduct();
+
+        if(JSON.parse(localStorage.getItem("orderNums"))){
+            this.orderNums = JSON.parse(localStorage.getItem("orderNums"));
+        }
+        
+
+        if(this.orderNums[0]==null){
+            this.orderNums.push(this.order);
+        }
     },
     updated(){
-
-        $(".btn2").on("click", function(){
-            console.log("CLICK");
-            $(".menu2").hide();
-            $(".menu3").fadeIn(500);
-            $(".backbtn").addClass("back2");
-            
-            return false;
-        });
-
+        
     }
+
+    //localStorage.removeItem('image');
+    //this.usuario.carrito.push(producto);
+    //this.usuario.total += parseInt(producto.costo);
+    //localStorage.setItem("usuario",JSON.stringify(this.usuario));
+    //this.user = JSON.parse(localStorage.getItem("usuarioL"));
 
 })

@@ -40,21 +40,61 @@
                 </div>
 
                 <div class="menu2">
-                    <div class="btn2 conten glass2 pointer " v-for="(type, index) in types" v-if="type.tipo == typeSelected">
+                    <div class="conten glass2 pointer " v-for="(type, index) in types" v-if="type.tipo == typeSelected" @click="typePCard(type.nombreTipo)">
                         <p>{{type.nombreTipo}}</p>
                     </div>
                 </div>
 
-                <div class="menu3 glass ocultar">
-                    <div v-for ="(producto, index) in productos">
+                <div class="menu3 glass ocultar overflowA">
+                    <div v-for ="(producto, index) in productos" v-if="producto.nombreTipo == productSelected">
                         <p>{{producto.nombre}}</p>
                     </div>
                 </div>
 
             </div>
 
+            <div class="userMenu fScreen">
+
+                <p>Mi Carta</p>
+
+                <div class="userMenuBox">
+                    <div class="orderNumBox fScreen2">
+                        <p>Número de Orden</p>
+                        <div class="fScreen2 flexCenter overflowA">
+                            <div v-for="(orderNum, index) in orderNums" :class="[index % 2 == 0 ? 'orange' : 'white']" class="num">
+                                <p style="margin: 0; padding: 0 1.2rem;">{{index + 1}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Order ocultar">
+                        <p>Pedido</p>
+                    </div>
+
+                </div>
+
+                <p class="sText PYCb 1">Terminos y Condiciones</p>
+            </div>
+
+            <div class="PYC ocultar">
+                <p>
+                    Esta aplicación no tiene validez así como la información contenida 
+                    en ella, es una herramienta para nuestros clientes, la información 
+                    y contenido dentro de esta aplicación es editable y no tienen ningún 
+                    valor.
+                </p>
+                <div class="windowBTN2">
+                    <i class="fas fa-times PYCb"></i>
+                </div>
+            </div>
+
             <div class="bar">
-                <i class="fas fa-arrow-left backbtn"></i>
+                <div class="barLe backbtn textCenter">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="barRi CardMenu textCenter">
+                    <i class="fas fa-address-book"></i>
+                </div>
             </div>
             
         </div>
